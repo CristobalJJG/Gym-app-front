@@ -13,12 +13,25 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Fab - Circulito para add un entrenamiento -->
+  <ion-fab>
+    <ion-fab-button id="tEx" expand="block">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
   <div *ngIf="allTrainings.length !== 0; else loading">
-    <pre>
-      {{allTrainings | json}}
+    <pre *ngFor="let t of allTrainings">
+      {{t | json}}
     </pre>
   </div>
 </ion-content>
+<!-- Modal para  -->
+<app-dialog [idTrigger]="'tEx'" [title]="'Añadir ejercicio...'">
+  <app-add-exercise-form></app-add-exercise-form>
+</app-dialog>
+
 
 <ng-template #loading>
   <div class="center">
