@@ -13,7 +13,15 @@
     </ion-toolbar>
   </ion-header>
 
-  <div>
-    {{allTrainings | json}}
+  <div *ngIf="allTrainings.length !== 0; else loading">
+    <pre>
+      {{allTrainings | json}}
+    </pre>
   </div>
 </ion-content>
+
+<ng-template #loading>
+  <div class="center">
+    <ion-spinner></ion-spinner>
+  </div>
+</ng-template>

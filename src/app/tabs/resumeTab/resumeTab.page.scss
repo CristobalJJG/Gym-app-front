@@ -1,0 +1,9 @@
+.center {
+    display: grid;
+    place-items: center;
+    height: 100%;
+
+    &>ion-spinner {
+        scale: 2;
+    }
+}

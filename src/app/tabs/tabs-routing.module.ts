@@ -4,11 +4,10 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
-    component: TabsPage,
-    children: [
+    path: 'tabs', component: TabsPage, children: [
+      { path: '', redirectTo: '/tabs/resume', pathMatch: 'full' },
       {
-        path: 'tab1',
+        path: 'resume',
         loadChildren: () => import('./resumeTab/resumeTab.module').then(m => m.ResumeTabModule)
       },
       {
@@ -19,18 +18,9 @@ const routes: Routes = [
         path: 'tab3',
         loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
       },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
-      }
     ]
   },
-  {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
-  }
+  { path: '', redirectTo: '/tabs/resume', pathMatch: 'full' }
 ];
 
 @NgModule({
