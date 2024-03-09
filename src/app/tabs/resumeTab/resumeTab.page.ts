@@ -19,6 +19,11 @@ export class ResumeTab {
         this.allTrainings.push(new Training(training.pk, t.fecha, t.duracion, t.calorias));
       });
     });
+
+    let t = new Training(0, new Date().toLocaleDateString(), "1 Hora", "Kcal");
+    this.ts.addTraining(t).then((res) => {
+      console.log(res);
+    });
   }
 
 
